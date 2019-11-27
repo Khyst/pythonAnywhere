@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'attachment.css' %}">
+        <title>Khyst</title>
+        <!-- bootstrap4 CSS CDN 부분 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous">
+    </head>
+
+    <body>
+        <script> 
+            function startImageCrawlling(){
+                window.location.assign(" {% url 'imgCrwalling' %} ")
+                alert('배경화면 스크롤중....')
+            }
+        </script>
+
+        <div>
+            <div id="lion" onclick="startImageCrawlling()"> 
+                <br><br><br><br>
+                
+                <p style="text-align:center"> Click me !!!! </p>
+            </div>
+            
+        </div>
+
+        <main role="main">
+
+            <div class="top_cover">
+                <div id="top" class="center-block" style="background-image: url({% static 'kakao_top.png' %});">
+
+                </div>
+            </div>
+
+    
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row">
+                        {% for portfolio in portfolios.all %}  
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="{{ portfolio.image.url }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4> {{portfolio.title}}</h4>
+                                    <p class="card-text"> {{ portfolio.description }}</p>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    
+        <footer class="text-muted">
+        <br>
+            <div class="row">
+                <div class="col-sm-2 text-center pl-4"> 
+                    <h5> Copyright &copy; 2019 </h5>
+                    <h5> yonghun, Kim ( 김용훈 ) </h5>
+                    <p> Computer Engineering </p>
+                    <p> Colleage Student 1 grade </p>
+                </div>
+                <div class="col-sm-6">
+                    <p>
+                    Album example is &copy; Bootstrap
+                    <span class='col-4 text-center'> // Source from <strong> KAKAO FRIENDS </strong> </span>
+                    <span class='col-4 text-right'> ( apllicated by KHY ) </span>
+                    </p>
+                    <p> KAKAO FIRENDS BRAND SITE <a href="https://store.kakaofriends.com/kr/brand/home"> https://store.kakaofriends.com/kr/brand/home </a> </p>
+                    <p> INTRO KHYST <a href="http://khyst.co.kr"> http://khyst.co.kr </a> </p>
+                    <p> Crawlling through BeautifulSoup4, requests Package </p>
+                </div>
+
+  
+                
+                <script>
+                    function fAssign() {
+                        window.location.assign("https://www.facebook.com/profile.php?id=100009362050399");
+                    }
+                    function nAssign(){
+                        window.location.assign("https://kyh9432242.blog.me");
+                    }
+                    function gAssign(){
+                        window.location.assign(
+                            "https://github.com/Khyst?tab=repositories"
+                        )
+                    }
+                </script>
+
+                <div class="col-sm-4">
+                    <div class="list-group" id="SNS">
+                        <a href="#" class="list-group-item" style="background-color:#3b5998;" onclick="fAssign()"> 
+                        <img src="{% static 'fb.png' %}" alt="" width="20px" height="20px"> &nbsp Facebook &nbsp / &nbsp kyh9432242@naver.com  </a>
+
+                        <a href="#" class="list-group-item" style="background-color:#2DB400;" onclick="nAssign()"> 
+                        <img src="{% static 'naver.png' %}" alt="" width="20px" height="20px"> &nbsp Naver &nbsp / &nbsp kyh9432242@naver.com </a>
+
+                        <a href="#" class="list-group-item" style="background-color:#808080;" onclick="gAssign()"> 
+                        <img src="{% static 'github.png' %}" alt="" width="20px" height="20px"> &nbsp Github &nbsp / &nbsp kyh48752242@gmail.com </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- bootstrap4 js관련 CDN 부분 -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
